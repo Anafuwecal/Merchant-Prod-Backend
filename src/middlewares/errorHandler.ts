@@ -7,6 +7,10 @@ export const globalErrorHandler = (
   res: Response,
   next: NextFunction
 ) => {
+
+  console.log("=== REAL ERROR STACK ===");
+  console.log(err.stack);
+  console.log("========================");
   // Read values safely without mutating the original err object directly
   let statusCode = err.statusCode || 500;
   let status = err.status || 'error';

@@ -16,16 +16,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Request Logger Middleware 
-app.use((req, res, next) => {
-  console.log(` Received Request: ${req.method} ${req.url}`);
-  if (Object.keys(req.body).length > 0) {
-    console.log(' Request Body:', JSON.stringify(req.body, null, 2));
-  }
-  next();
-});
-
-
 // Base Route Test
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'UP', message: 'Server is performing smoothly' });
